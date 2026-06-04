@@ -1,0 +1,5 @@
+Cell_Name,RSRP,SINR,ERAB_DROP,CSSR
+Cell_1,-95,12,0.8,99
+Cell_2,-110,4,3.5,94
+Cell_3,-102,8,1.2,97
+Cell_4,-115,2,5.0,92
