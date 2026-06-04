@@ -1,0 +1,40 @@
+import pandas as pd
+
+# Load KPI Report
+df = pd.read_csv("LTE_KPI_Report.csv")
+
+print("===== COMPLETE KPI REPORT =====")
+print(df)
+
+# Poor Coverage Cells
+poor_rsrp = df[df["RSRP"] < -105]
+
+print("\n===== POOR COVERAGE CELLS =====")
+print(poor_rsrp)
+
+# Poor SINR Cells
+poor_sinr = df[df["SINR"] < 5]
+
+print("\n===== LOW SINR CELLS =====")
+print(poor_sinr)
+
+# High ERAB Drop Cells
+high_drop = df[df["ERAB_DROP"] > 2]
+
+print("\n===== HIGH ERAB DROP CELLS =====")
+print(high_drop)
+
+# Low CSSR Cells
+low_cssr = df[df["CSSR"] < 95]
+
+print("\n===== LOW CSSR CELLS =====")
+print(low_cssr)
+
+# KPI Summary
+print("\n===== KPI SUMMARY =====")
+
+print("Total Cells :", len(df))
+print("Poor RSRP Cells :", len(poor_rsrp))
+print("Low SINR Cells :", len(poor_sinr))
+print("High ERAB Drop Cells :", len(high_drop))
+print("Low CSSR Cells :", len(low_cssr))
