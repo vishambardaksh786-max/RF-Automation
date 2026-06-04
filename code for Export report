@@ -1,0 +1,22 @@
+import pandas as pd
+
+df = pd.read_csv("LTE_KPI_Report.csv")
+
+poor_rsrp = df[df["RSRP"] < -105]
+poor_sinr = df[df["SINR"] < 5]
+high_drop = df[df["ERAB_DROP"] > 2]
+
+with pd.ExcelWriter("KPI_Analysis.xlsx") as writer:
+    poor_rsrp.to_excel(writer,
+                        sheet_name="Poor_RSRP",
+                        index=False)
+
+    poor_sinr.to_excel(writer,
+                        sheet_name="Low_SINR",
+                        index=False)
+
+    high_drop.to_excel(writer,
+                        sheet_name="High_ERAB_DROP",
+                        index=False)
+
+print("Analysis Report Generated")
